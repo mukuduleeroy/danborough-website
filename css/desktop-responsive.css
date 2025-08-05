@@ -1,0 +1,563 @@
+/* 
+   Desktop Responsive Styles
+   Danborough Group of Colleges
+   Author: GitHub Copilot
+   Date: July 24, 2025
+*/
+
+/* ====================================
+   DESKTOP BREAKPOINTS & CONTAINERS
+   ==================================== */
+
+/* Large Desktop (1400px and up) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .hero-tagline {
+        font-size: 4rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtext {
+        font-size: 1.4rem;
+        max-width: 600px;
+    }
+    
+    .section-header h2 {
+        font-size: 3.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+    
+    .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+}
+
+/* Standard Desktop (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .hero-tagline {
+        font-size: 3.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtext {
+        font-size: 1.25rem;
+        max-width: 550px;
+    }
+    
+    .section-header h2 {
+        font-size: 3rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+    
+    .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    .join-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+}
+
+/* Medium Desktop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .hero-tagline {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtext {
+        font-size: 1.2rem;
+        max-width: 500px;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+    
+    .join-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+    
+    /* Navigation adjustments */
+    .hero-nav-left,
+    .hero-nav-right {
+        margin: 0 15px;
+    }
+    
+    .hero-nav-left li,
+    .hero-nav-right li {
+        margin: 0 8px;
+    }
+    
+    .dropdown-menu {
+        min-width: 220px;
+    }
+}
+
+/* ====================================
+   DESKTOP LAYOUT OPTIMIZATIONS
+   ==================================== */
+
+@media (min-width: 992px) {
+    /* Hero Section Desktop Layout */
+    #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero-background {
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+    
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+    }
+    
+    /* Features Section Desktop */
+    #features {
+        padding: 120px 0;
+    }
+    
+    .feature-box {
+        padding: 40px 30px;
+        text-align: center;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .feature-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        transition: left 0.5s ease;
+    }
+    
+    .feature-box:hover::before {
+        left: 0;
+    }
+    
+    .feature-box:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 60px rgba(30, 136, 41, 0.2);
+    }
+    
+    /* About Section Desktop */
+    #about {
+        padding: 120px 0;
+        background: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(255, 255, 255, 0.9)), url('../images/campus2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .about-image img {
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        transition: transform 0.5s ease;
+    }
+    
+    .about-image:hover img {
+        transform: scale(1.05);
+    }
+    
+    /* Programs Section Desktop */
+    #programs {
+        padding: 120px 0;
+        background: linear-gradient(135deg, rgba(30, 136, 41, 0.95), rgba(0, 153, 0, 0.9)), url('../images/campus3.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .program-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+    
+    .program-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+    
+    .program-card:hover::before {
+        transform: scaleX(1);
+    }
+    
+    .program-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 30px 70px rgba(30, 136, 41, 0.25);
+    }
+    
+    /* Newsletter Section Desktop */
+    #newsletter {
+        padding: 120px 0;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .newsletter-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    /* Join Section Desktop */
+    #join-danborough {
+        padding: 120px 0;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .join-image img {
+        border-radius: 20px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        transition: transform 0.5s ease;
+    }
+    
+    .join-image:hover img {
+        transform: scale(1.03) rotate(1deg);
+    }
+    
+    /* Footer Desktop */
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 80px;
+        align-items: start;
+    }
+}
+
+/* ====================================
+   DESKTOP TYPOGRAPHY
+   ==================================== */
+
+@media (min-width: 992px) {
+    .hero-tagline {
+        font-weight: 800;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.02em;
+    }
+    
+    .section-header h2 {
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-bottom: 20px;
+    }
+    
+    .section-header p {
+        font-size: 1.2rem;
+        color: rgba(51, 51, 51, 0.8);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .feature-box h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 20px 0 15px;
+        color: var(--text-color);
+    }
+    
+    .feature-box p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: rgba(51, 51, 51, 0.8);
+    }
+}
+
+/* ====================================
+   DESKTOP ANIMATIONS & EFFECTS
+   ==================================== */
+
+@media (min-width: 992px) {
+    /* Parallax scrolling effect */
+    .parallax-element {
+        transform: translateZ(0);
+        will-change: transform;
+    }
+    
+    /* Smooth scrolling behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Enhanced hover effects for buttons */
+    .btn-primary,
+    .btn-secondary,
+    .btn-apply {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .btn-primary::before,
+    .btn-secondary::before,
+    .btn-apply::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+        z-index: -1;
+    }
+    
+    .btn-primary:hover::before,
+    .btn-secondary:hover::before,
+    .btn-apply:hover::before {
+        left: 100%;
+    }
+    
+    /* Desktop-specific animations */
+    .desktop-fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .desktop-fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .desktop-slide-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .desktop-slide-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .desktop-slide-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .desktop-slide-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ====================================
+   DESKTOP PERFORMANCE OPTIMIZATIONS
+   ==================================== */
+
+@media (min-width: 992px) {
+    /* Hardware acceleration for smooth animations */
+    .feature-box,
+    .program-card,
+    .about-image img,
+    .join-image img {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+    
+    /* Optimize rendering */
+    .hero-background,
+    #about,
+    #programs,
+    #newsletter,
+    #join-danborough {
+        transform: translate3d(0, 0, 0);
+    }
+    
+    /* Preload critical images */
+    .preload-desktop {
+        content: url('../images/hero1.jpg') url('../images/campus1.jpg') url('../images/campus2.jpg') url('../images/campus3.jpg') url('../images/campus4.jpg');
+        display: none;
+    }
+}
+
+/* ====================================
+   DESKTOP ACCESSIBILITY ENHANCEMENTS
+   ==================================== */
+
+@media (min-width: 992px) {
+    /* Enhanced focus indicators for desktop */
+    .feature-box:focus-within,
+    .program-card:focus-within {
+        outline: 3px solid var(--secondary-color);
+        outline-offset: 4px;
+    }
+    
+    /* Reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+        .hero-background,
+        #about,
+        #programs,
+        #newsletter,
+        #join-danborough {
+            background-attachment: scroll;
+        }
+        
+        .feature-box,
+        .program-card,
+        .about-image img,
+        .join-image img {
+            transition: none;
+        }
+        
+        .desktop-fade-in,
+        .desktop-slide-left,
+        .desktop-slide-right {
+            transition: none;
+            opacity: 1;
+            transform: none;
+        }
+    }
+    
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .feature-box,
+        .program-card {
+            border: 2px solid var(--primary-color);
+        }
+        
+        .hero-background,
+        #about,
+        #programs,
+        #newsletter,
+        #join-danborough {
+            background-image: none;
+            background-color: var(--white);
+            color: var(--text-color);
+        }
+    }
+}
+
+/* ====================================
+   DESKTOP GRID SYSTEMS
+   ==================================== */
+
+@media (min-width: 992px) {
+    .desktop-grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .desktop-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+    
+    .desktop-grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+    
+    .desktop-flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .desktop-flex-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .desktop-flex-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

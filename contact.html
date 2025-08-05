@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Danborough Group of Colleges</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+    <link rel="shortcut icon" href="images/logo.png">
+    <meta name="msapplication-TileImage" content="images/logo.png">
+    <meta name="msapplication-TileColor" content="#1e8829">
+    <meta name="theme-color" content="#1e8829">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/desktop-responsive.css">
+    <link rel="stylesheet" href="css/mobile-responsive.css">
+    <link rel="stylesheet" href="css/page-styles.css">
+    <link rel="stylesheet" href="css/footer-styles.css">
+    <link rel="stylesheet" href="css/enhanced-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us - we're here to help with all your inquiries</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Contact Introduction Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up" data-aos-duration="800">
+                <h2>Get in Touch With Us</h2>
+                <p>We're here to help with all your inquiries about admissions, academics, and campus life. Reach out to us through any of the methods below.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Information Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="content-card animate-card">
+                        <h3 data-aos="fade-up" data-aos-delay="200">Send Us a Message</h3>
+                        <p class="mb-4" data-aos="fade-up" data-aos-delay="300">Fill out the form below and we'll get back to you as soon as possible.</p>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="400">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" class="form-control animated-input" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="450">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" class="form-control animated-input" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="500">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control animated-input" id="email" name="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="550">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control animated-input" id="phone" name="phone">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3" data-aos="fade-up" data-aos-delay="600">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select class="form-select animated-input" id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="admissions">Admissions Inquiry</option>
+                                    <option value="academic">Academic Information</option>
+                                    <option value="fees">Fees and Payment</option>
+                                    <option value="campus">Campus Visit</option>
+                                    <option value="support">Student Support</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3" data-aos="fade-up" data-aos-delay="650">
+                                <label for="campus" class="form-label">Campus of Interest</label>
+                                <select class="form-select animated-input" id="campus" name="campus">
+                                    <option value="">Select a campus</option>
+                                    <option value="glen-view">Glen View Campus</option>
+                                    <option value="warren-park">Warren Park Campus</option>
+                                    <option value="chitungwiza">Chitungwiza Campus (Coming Soon)</option>
+                                    <option value="all">All Campuses</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3" data-aos="fade-up" data-aos-delay="700">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control animated-input" id="message" name="message" rows="6" placeholder="Please provide details about your inquiry..." required></textarea>
+                            </div>
+
+                            <div class="mb-3" data-aos="fade-up" data-aos-delay="750">
+                                <label for="referral" class="form-label">How did you hear about us?</label>
+                                <select class="form-select animated-input" id="referral" name="referral">
+                                    <option value="">Please select</option>
+                                    <option value="website">Website</option>
+                                    <option value="social-media">Social Media</option>
+                                    <option value="friend-family">Friend or Family</option>
+                                    <option value="school-counselor">School Counselor</option>
+                                    <option value="newspaper">Newspaper</option>
+                                    <option value="radio">Radio</option>
+                                    <option value="event">School Event</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-text">Your response helps us improve our outreach and provide better services for future students. Thank you for your input!</div>
+                            </div>
+                            
+                            <div class="mb-3 form-check" data-aos="fade-up" data-aos-delay="800">
+                                <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
+                                <label class="form-check-label" for="newsletter">
+                                    I would like to receive updates and newsletters from Danborough Group of Colleges
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary-custom animated-btn" data-aos="zoom-in" data-aos-delay="850">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="content-card animate-card">
+                        <h3 data-aos="fade-up" data-aos-delay="300">Contact Information</h3>
+                        <p class="mb-4" data-aos="fade-up" data-aos-delay="400">Reach out to us through any of the following methods:</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item animated-contact-item" data-aos="fade-up" data-aos-delay="500">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-details">
+                                    <h4>Glen View Campus</h4>
+                                    <p>4184 OFF PATRENDA WAY<br>MAKOMVA SHOPPING CENTRE, GLENVIEW<br>Zimbabwe</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item animated-contact-item" data-aos="fade-up" data-aos-delay="550">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-details">
+                                    <h4>Warren Park Campus</h4>
+                                    <p>456 Learning Avenue<br>Warren Park, Harare<br>Zimbabwe</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item animated-contact-item" data-aos="fade-up" data-aos-delay="600">
+                                <i class="fas fa-phone"></i>
+                                <div class="contact-details">
+                                    <h4>Phone Numbers</h4>
+                                    <p>
+                                        <a href="tel:+263775123456">+263 775 123 456</a><br>
+                                        <a href="tel:+263712987654">+263 712 987 654</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item animated-contact-item" data-aos="fade-up" data-aos-delay="650">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-details">
+                                    <h4>Email Addresses</h4>
+                                    <p>
+                                        <a href="mailto:danboroughgroupofcolleges@gmail.com">danboroughgroupofcolleges@gmail.com</a><br>
+                                        <a href="mailto:danboroughgroupofcolleges@gmail.com">danboroughgroupofcolleges@gmail.com</a><br>
+                                        <a href="mailto:danboroughgroupofcolleges@gmail.com">danboroughgroupofcolleges@gmail.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item animated-contact-item" data-aos="fade-up" data-aos-delay="700">
+                                <i class="fas fa-clock"></i>
+                                <div class="contact-details">
+                                    <h4>Office Hours</h4>
+                                    <p>
+                                        Monday - Friday: 7:30 AM - 5:00 PM<br>
+                                        Saturday: 8:00 AM - 12:00 PM<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item animated-contact-item" data-aos="fade-up" data-aos-delay="750">
+                                <i class="fas fa-share-alt"></i>
+                                <div class="contact-details">
+                                    <h4>Follow Us</h4>
+                                    <div class="social-links">
+                                        <a href="#" class="social-link facebook animated-social">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="social-link twitter animated-social">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-link instagram animated-social">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="social-link linkedin animated-social">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="#" class="social-link youtube animated-social">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Contact Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                <h2>Contact Our Departments</h2>
+                <p>Get in touch with specific departments for specialized assistance</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item animated-department-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <div class="feature-icon animated-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 data-aos="fade-up" data-aos-delay="200">Admissions Office</h3>
+                    <p data-aos="fade-up" data-aos-delay="250">Application process, entrance requirements, and enrollment information.</p>
+                    <div class="mt-3" data-aos="fade-up" data-aos-delay="300">
+                        <p class="contact-detail-item"><i class="fas fa-phone pulse-icon"></i> +263 775 123 459</p>
+                        <p class="contact-detail-item"><i class="fas fa-envelope pulse-icon"></i> danboroughgroupofcolleges@gmail.com</p>
+                    </div>
+                    <a href="mailto:danboroughgroupofcolleges@gmail.com" class="btn-secondary-custom animated-btn" data-aos="zoom-in" data-aos-delay="350">Contact Department</a>
+                </div>
+                
+                <div class="feature-item animated-department-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <div class="feature-icon animated-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 data-aos="fade-up" data-aos-delay="300">Academic Affairs</h3>
+                    <p data-aos="fade-up" data-aos-delay="350">Curriculum, academic programs, and student academic support services.</p>
+                    <div class="mt-3" data-aos="fade-up" data-aos-delay="400">
+                        <p class="contact-detail-item"><i class="fas fa-phone pulse-icon"></i> +263 775 123 460</p>
+                        <p class="contact-detail-item"><i class="fas fa-envelope pulse-icon"></i> danboroughgroupofcolleges@gmail.com</p>
+                    </div>
+                    <a href="mailto:danboroughgroupofcolleges@gmail.com" class="btn-secondary-custom animated-btn" data-aos="zoom-in" data-aos-delay="450">Contact Department</a>
+                </div>
+                
+                <div class="feature-item animated-department-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+                    <div class="feature-icon animated-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 data-aos="fade-up" data-aos-delay="400">Finance Office</h3>
+                    <p data-aos="fade-up" data-aos-delay="450">Fee payments, financial aid, scholarships, and billing inquiries.</p>
+                    <div class="mt-3" data-aos="fade-up" data-aos-delay="500">
+                        <p class="contact-detail-item"><i class="fas fa-phone pulse-icon"></i> +263 775 123 461</p>
+                        <p class="contact-detail-item"><i class="fas fa-envelope pulse-icon"></i> danboroughgroupofcolleges@gmail.com</p>
+                    </div>
+                    <a href="mailto:danboroughgroupofcolleges@gmail.com" class="btn-secondary-custom animated-btn" data-aos="zoom-in" data-aos-delay="550">Contact Department</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up" data-aos-duration="800">
+                <h2>Find Us</h2>
+                <p>Visit our campus and experience our facilities firsthand</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <div class="map-container animated-map" data-aos="zoom-in" data-aos-delay="300">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.1875156468647!2d31.0522985148628!3d-17.824857987596747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a497ea94b60b%3A0x9a3b5f8c4e5d6f7e!2sHarare%2C%20Zimbabwe!5e0!3m2!1sen!2sus!4v1625123456789!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="map-info">
+                        <div class="row text-center">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                                <div class="direction-info animated-direction-card">
+                                    <i class="fas fa-car animated-transport-icon"></i>
+                                    <h4>By Car</h4>
+                                    <p>Free parking available on campus</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                                <div class="direction-info animated-direction-card">
+                                    <i class="fas fa-bus animated-transport-icon"></i>
+                                    <h4>By Public Transport</h4>
+                                    <p>Multiple bus routes stop near campus</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                                <div class="direction-info animated-direction-card">
+                                    <i class="fas fa-walking animated-transport-icon"></i>
+                                    <h4>Walking Distance</h4>
+                                    <p>5 minutes from city center</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Danborough Section -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="800">
+                    <h2 data-aos="fade-up" data-aos-delay="100">About Danborough Group of Colleges</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">Danborough Group of Colleges is an extraordinary school of choice. We prepare students for the academic challenges that await them in college and beyond.</p>
+                    <p data-aos="fade-up" data-aos-delay="300">Our accelerated curriculum educates, challenges, and inspires young people for their higher educational pursuits. With multiple campuses across Harare, we provide quality education that meets international standards while addressing local educational needs.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="stat-highlight animated-stat">
+                                <h3 class="text-primary counting-number" data-count="3">0</h3>
+                                <p>Campuses</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="stat-highlight animated-stat">
+                                <h3 class="text-primary counting-number" data-count="98">0</h3>
+                                <p>Pass Rate (%)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="600">
+                            <div class="stat-highlight animated-stat">
+                                <h3 class="text-primary counting-number" data-count="20">0</h3>
+                                <p>Subjects Offered</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up" data-aos-duration="800">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our college</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item animated-accordion-item" data-aos="fade-up" data-aos-delay="300">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button animated-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What are the admission requirements?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Admission requirements vary by level. For O Level, students need a ZJC certificate. For A Level, students need O Level passes with good grades. Please contact our admissions office for detailed requirements.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animated-accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed animated-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What are the school fees?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    School fees vary depending on the level and programs chosen. We offer flexible payment plans and scholarship opportunities. Please contact our finance office for current fee structures and payment options.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animated-accordion-item" data-aos="fade-up" data-aos-delay="500">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed animated-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Do you offer scholarships?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer merit-based scholarships for outstanding academic performance, as well as need-based financial aid. Scholarship applications are reviewed annually, and students are encouraged to apply early.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animated-accordion-item" data-aos="fade-up" data-aos-delay="600">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed animated-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Can I schedule a campus visit?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutely! We encourage prospective students and parents to visit our campus. Tours are available Monday through Friday. Please contact our admissions office to schedule a visit.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- About Widget -->
+                    <div class="footer-widget about-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="footer-logo">
+                            <img src="images/logo-white.png" alt="Danborough Group of Colleges">
+                        </div>
+                        <h3>About Danborough Group of Colleges</h3>
+                        <p>Danborough Group of Colleges is an extraordinary school of choice dedicated to keeping success in sight. We focus on activating the mind, unlocking potential, and inspiring the future of Zimbabwe through our nurturing environment and commitment to academic excellence.</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="200">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" aria-label="Instagram" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="500">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" aria-label="YouTube" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="600">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Widget -->
+                    <div class="footer-widget links-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                            <li><a href="staff.html">Our Staff</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="enroll.html">Enroll Now</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Academic Programs Widget -->
+                    <div class="footer-widget programs-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <h3>Academic Programs</h3>
+                        <ul>
+                            <li><a href="academics.html">Academic Faculties</a></li>
+                            <li><a href="zjc-level.html">ZJC Level</a></li>
+                            <li><a href="o-level.html">O Level</a></li>
+                            <li><a href="a-level.html">A Level</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="media.html">Media Center</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Information Widget -->
+                    <div class="footer-widget contact-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-details">
+                                    <h4>Glen View Campus</h4>
+                                    <p>4184 OFF PATRENDA WAY,<br>MAKOMVA SHOPPING CENTRE, GLENVIEW</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-details">
+                                    <h4>Warren Park Campus</h4>
+                                    <p>456 Learning Avenue, Warren Park<br>Harare, Zimbabwe</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="contact-details">
+                                    <a href="tel:+263775123456">+263 775 123 456</a><br>
+                                    <a href="tel:+263712987654">+263 712 987 654</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-details">
+                                    <a href="mailto:danboroughgroupofcolleges@gmail.com">danboroughgroupofcolleges@gmail.com</a><br>
+                                    <a href="mailto:danboroughgroupofcolleges@gmail.com">danboroughgroupofcolleges@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Danborough Group of Colleges. All Rights Reserved.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Accessibility</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/mobile-nav.js"></script>
+    <script src="js/desktop-responsive.js"></script>
+    <script src="js/mobile-responsive.js"></script>
+    <script src="js/enhanced-footer-animations.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+            easing: 'ease-out-cubic'
+        });
+
+        // Contact Form Functionality with enhanced validation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll progress indicator
+            const scrollProgress = document.createElement('div');
+            scrollProgress.className = 'scroll-progress';
+            document.body.prepend(scrollProgress);
+
+            // Update scroll progress
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                scrollProgress.style.width = scrollPercent + '%';
+            });
+
+            // Counting animation for statistics
+            function animateCounters() {
+                const counters = document.querySelectorAll('.counting-number');
+                const speed = 200; // Animation speed
+
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const increment = target / speed;
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            counter.textContent = Math.ceil(current);
+                            setTimeout(updateCounter, 1);
+                        } else {
+                            counter.textContent = target;
+                            // Add "+" for subjects
+                            if (target === 20) {
+                                counter.textContent = target + '+';
+                            }
+                            // Add "%" for pass rate
+                            if (target === 98) {
+                                counter.textContent = target + '%';
+                            }
+                        }
+                    };
+                    updateCounter();
+                });
+            }
+
+            // Trigger counter animation when stats section is visible
+            const statsSection = document.querySelector('.animated-stat');
+            if (statsSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                observer.observe(statsSection);
+            }
+
+            // Enhanced contact form
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                // Add floating labels effect
+                const inputs = contactForm.querySelectorAll('.animated-input');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', function() {
+                        this.parentElement.classList.add('focused');
+                    });
+                    
+                    input.addEventListener('blur', function() {
+                        if (!this.value) {
+                            this.parentElement.classList.remove('focused');
+                        }
+                    });
+                });
+
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Basic validation
+                    if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+                        showNotification('Please fill in all required fields.', 'error');
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(data.email)) {
+                        showNotification('Please enter a valid email address.', 'error');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('loading');
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        showNotification('Thank you for your message! We will get back to you within 24 hours.', 'success');
+                        
+                        // Reset the form with animation
+                        contactForm.reset();
+                        contactForm.classList.add('form-submitted');
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('loading');
+                        
+                        setTimeout(() => {
+                            contactForm.classList.remove('form-submitted');
+                        }, 1000);
+                    }, 2000);
+                });
+            }
+
+            // Enhanced notification system
+            function showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                    <span>${message}</span>
+                    <button class="notification-close"><i class="fas fa-times"></i></button>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 100);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    removeNotification(notification);
+                }, 5000);
+                
+                // Close button
+                notification.querySelector('.notification-close').addEventListener('click', () => {
+                    removeNotification(notification);
+                });
+            }
+
+            function removeNotification(notification) {
+                notification.classList.add('hide');
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }
+
+            // Newsletter form functionality
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    if (email) {
+                        showNotification('Thank you for subscribing to our newsletter!', 'success');
+                        this.reset();
+                        this.classList.add('subscribed');
+                        setTimeout(() => {
+                            this.classList.remove('subscribed');
+                        }, 2000);
+                    }
+                });
+            }
+
+            // Enhanced smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80; // Account for fixed header
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add parallax effect to hero section
+            const hero = document.querySelector('.page-hero');
+            if (hero) {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.5;
+                    hero.style.transform = `translateY(${rate}px)`;
+                });
+            }
+
+            // Add hover ripple effect to buttons
+            document.querySelectorAll('.animated-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add floating animation to contact cards
+            document.querySelectorAll('.animate-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.classList.add('floating');
+            });
+
+            // Accordion enhanced animation
+            document.querySelectorAll('.accordion-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const target = document.querySelector(this.getAttribute('data-bs-target'));
+                    if (target) {
+                        setTimeout(() => {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'nearest'
+                            });
+                        }, 300);
+                    }
+                });
+            });
+
+            // Add typing effect to hero text
+            const heroTitle = document.querySelector('.page-hero h1');
+            if (heroTitle) {
+                const text = heroTitle.textContent;
+                heroTitle.textContent = '';
+                let i = 0;
+                
+                function typeWriter() {
+                    if (i < text.length) {
+                        heroTitle.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                }
+                
+                setTimeout(typeWriter, 1000);
+            }
+        });
+
+        // Add CSS for notifications
+        const notificationCSS = `
+            .notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 10000;
+                max-width: 400px;
+            }
+            
+            .notification.show {
+                transform: translateX(0);
+            }
+            
+            .notification.hide {
+                transform: translateX(100%);
+            }
+            
+            .notification-success {
+                border-left: 4px solid var(--primary-green);
+                color: var(--primary-green);
+            }
+            
+            .notification-error {
+                border-left: 4px solid #dc3545;
+                color: #dc3545;
+            }
+            
+            .notification-close {
+                background: none;
+                border: none;
+                font-size: 1rem;
+                cursor: pointer;
+                opacity: 0.7;
+                margin-left: auto;
+            }
+            
+            .notification-close:hover {
+                opacity: 1;
+            }
+            
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = notificationCSS;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

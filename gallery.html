@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Danborough Group of Colleges</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/desktop-responsive.css">
+    <link rel="stylesheet" href="css/mobile-responsive.css">
+    <link rel="stylesheet" href="css/page-styles.css">
+    <link rel="stylesheet" href="css/footer-styles.css">
+    <link rel="stylesheet" href="css/enhanced-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Enhanced Gallery Styles -->
+    <style>
+        .page-loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        body.loaded .page-loading {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(30, 136, 41, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(30, 136, 41, 0.2);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(30, 136, 41, 0.9), rgba(255, 204, 0, 0.8));
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .overlay-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-card:hover .overlay-content {
+            transform: translateY(0);
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 136, 41, 0.3);
+        }
+        
+        .floating-animation {
+            animation: floatUpDown 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .enhanced-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .enhanced-hover:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="page-loading">
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container">
+            <h1 data-aos="zoom-in" data-aos-delay="300">Photo Gallery</h1>
+            <p data-aos="fade-up" data-aos-delay="500">Capturing memorable moments and celebrating achievements at Danborough Group of Colleges</p>
+            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="700">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="media.html">Media</a></li>
+                    <li class="breadcrumb-item active">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <nav class="page-nav" data-aos="fade-down">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link">Overview</a></li>
+                <li><a href="#gallery-main" class="nav-link">Photo Collection</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+                <li><a href="#statistics" class="nav-link">Gallery Stats</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Overview -->
+    <section id="overview" class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Photo Gallery</h2>
+                <p>Browse through memorable moments captured at Danborough Group of Colleges</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="content-card enhanced-hover">
+                        <h3>Capturing Excellence</h3>
+                        <p>Our photo gallery showcases the vibrant life at Danborough Group of Colleges, from academic achievements to cultural celebrations, sports competitions to graduation ceremonies.</p>
+                        
+                        <h4>What You'll Find:</h4>
+                        <ul class="custom-list">
+                            <li>Annual events and celebrations</li>
+                            <li>Academic activities and achievements</li>
+                            <li>Sports competitions and tournaments</li>
+                            <li>Campus life and student activities</li>
+                            <li>Graduation ceremonies and awards</li>
+                            <li>Cultural performances and exhibitions</li>
+                        </ul>
+                        
+                        <a href="#gallery-main" class="btn-primary-custom">
+                            <i class="fas fa-camera"></i>
+                            Explore Gallery
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+                    <div class="content-image floating-animation">
+                        <img src="images/Gallery/campus life/IMG-20231018-WA0010.jpg" alt="Campus Life at Danborough" class="img-fluid">
+                    </div>
+                    
+                    <div class="quote-section" data-aos="fade-up" data-aos-delay="600">
+                        <p class="quote-text">Every photo tells a story of growth, achievement, and the unforgettable journey of our students.</p>
+                        <p class="quote-author">— Danborough Photo Archives</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Categories -->
+    <section id="categories" class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Gallery Categories</h2>
+                <p>Explore different aspects of life at Danborough through our organized photo collections</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Events & Celebrations</h3>
+                    <p>Annual day celebrations, science fairs, cultural events, and special occasions that bring our community together.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-success">50+ Events</span>
+                    </div>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Academic Excellence</h3>
+                    <p>Classroom activities, laboratory sessions, library studies, and academic achievements of our students.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary">100+ Photos</span>
+                    </div>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Sports & Competition</h3>
+                    <p>Inter-house competitions, sports days, football tournaments, and athletic achievements.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-warning">75+ Photos</span>
+                    </div>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Campus Life</h3>
+                    <p>Daily life on campus, recreational activities, student interactions, and beautiful campus grounds.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-info">150+ Photos</span>
+                    </div>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Graduation & Awards</h3>
+                    <p>Graduation ceremonies, academic awards, recognition events, and celebrating student achievements.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-success">40+ Photos</span>
+                    </div>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Cultural Heritage</h3>
+                    <p>Cultural performances, traditional celebrations, art exhibitions, and creative expressions.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-danger">60+ Photos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Main Section -->
+    <section id="gallery-main" class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Photo Collection</h2>
+                <p>Filter and explore our extensive collection of memorable moments</p>
+                
+                <div class="filter-tabs" data-aos="fade-up" data-aos-delay="300">
+                    <button class="filter-btn active" data-filter="all">All Photos</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                    <button class="filter-btn" data-filter="academics">Academics</button>
+                    <button class="filter-btn" data-filter="sports">Sports</button>
+                    <button class="filter-btn" data-filter="campus">Campus Life</button>
+                    <button class="filter-btn" data-filter="graduation">Graduation</button>
+                </div>
+            </div>
+            
+            <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+                <!-- Events Photos -->
+                <div class="gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/events/IMG-20231018-WA0010.jpg" alt="College Annual Day" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Annual Day Celebration</h4>
+                                <p>Students showcase their talents in cultural performances</p>
+                                <a href="images/Gallery/events/IMG-20231018-WA0010.jpg" data-lightbox="gallery" data-title="Annual Day Celebration" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/events/IMG-20231018-WA0012.jpg" alt="Science Fair" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Science Fair Exhibition</h4>
+                                <p>Students present innovative science projects</p>
+                                <a href="images/Gallery/events/IMG-20231018-WA0012.jpg" data-lightbox="gallery" data-title="Science Fair Exhibition" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Photos -->
+                <div class="gallery-item" data-category="academics" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/academics/IMG-20231018-WA0015.jpg" alt="Modern Classroom" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Interactive Classroom</h4>
+                                <p>State-of-the-art learning environments</p>
+                                <a href="images/Gallery/academics/IMG-20231018-WA0015.jpg" data-lightbox="gallery" data-title="Interactive Classroom" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="academics" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/academics/IMG-20231018-WA0017.jpg" alt="Science Laboratory" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Science Laboratory</h4>
+                                <p>Hands-on practical learning sessions</p>
+                                <a href="images/Gallery/academics/IMG-20231018-WA0017.jpg" data-lightbox="gallery" data-title="Science Laboratory" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sports Photos -->
+                <div class="gallery-item" data-category="sports" data-aos="fade-up" data-aos-delay="500">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/Sport/IMG-20231018-WA0020.jpg" alt="Sports Day" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Inter-House Sports Day</h4>
+                                <p>Annual athletics competition between houses</p>
+                                <a href="images/Gallery/Sport/IMG-20231018-WA0020.jpg" data-lightbox="gallery" data-title="Inter-House Sports Day" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sports" data-aos="fade-up" data-aos-delay="600">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/Sport/IMG-20231018-WA0021.jpg" alt="Football Match" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Football Championship</h4>
+                                <p>Students competing in the annual football tournament</p>
+                                <a href="images/Gallery/Sport/IMG-20231018-WA0021.jpg" data-lightbox="gallery" data-title="Football Championship" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campus Life Photos -->
+                <div class="gallery-item" data-category="campus" data-aos="fade-up" data-aos-delay="700">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/campus life/IMG-20231018-WA0010.jpg" alt="Campus Garden" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Beautiful Campus Grounds</h4>
+                                <p>Well-maintained gardens and recreational areas</p>
+                                <a href="images/Gallery/campus life/IMG-20231018-WA0010.jpg" data-lightbox="gallery" data-title="Beautiful Campus Grounds" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campus" data-aos="fade-up" data-aos-delay="800">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/campus life/IMG-20231018-WA0012.jpg" alt="Library" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Modern Library Facility</h4>
+                                <p>Quiet study spaces with extensive book collection</p>
+                                <a href="images/Gallery/campus life/IMG-20231018-WA0012.jpg" data-lightbox="gallery" data-title="Modern Library Facility" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Photos -->
+                <div class="gallery-item" data-category="graduation" data-aos="fade-up" data-aos-delay="900">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/campus life/IMG-20231018-WA0013.jpg" alt="Graduation Ceremony" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Graduation Day 2023</h4>
+                                <p>Celebrating our successful graduates</p>
+                                <a href="images/Gallery/campus life/IMG-20231018-WA0013.jpg" data-lightbox="gallery" data-title="Graduation Day 2023" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/campus life/IMG-20231018-WA0018.jpg" alt="Cultural Event" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Cultural Heritage Day</h4>
+                                <p>Celebrating diverse cultural traditions</p>
+                                <a href="images/Gallery/campus life/IMG-20231018-WA0018.jpg" data-lightbox="gallery" data-title="Cultural Heritage Day" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="academics" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/campus life/IMG-20231018-WA0020.jpg" alt="Computer Lab" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Computer Laboratory</h4>
+                                <p>Digital learning and programming sessions</p>
+                                <a href="images/Gallery/campus life/IMG-20231018-WA0020.jpg" data-lightbox="gallery" data-title="Computer Laboratory" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="graduation" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="gallery-card">
+                        <img src="images/Gallery/campus life/IMG-20231018-WA0022.jpg" alt="Awards Ceremony" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h4>Academic Excellence Awards</h4>
+                                <p>Recognizing outstanding academic achievements</p>
+                                <a href="images/Gallery/campus life/IMG-20231018-WA0022.jpg" data-lightbox="gallery" data-title="Academic Excellence Awards" class="btn-primary-custom">
+                                    <i class="fas fa-expand"></i> View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="1300">
+                <button class="btn-secondary-custom" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Load More Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Statistics -->
+    <section id="statistics" class="stats-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 style="color: white;">Gallery Statistics</h2>
+                <p style="color: rgba(255,255,255,0.9);">Our comprehensive photo collection showcasing years of memorable moments</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number pulse-animation">500+</div>
+                    <div class="stat-label">Photos in Gallery</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number pulse-animation">50+</div>
+                    <div class="stat-label">Events Covered</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number pulse-animation">25</div>
+                    <div class="stat-label">Years of Memories</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number pulse-animation">1000+</div>
+                    <div class="stat-label">Students Featured</div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
+                <a href="contact.html" class="btn-primary-custom" style="background: linear-gradient(135deg, #ffcc00 0%, #ffd633 100%); color: #1e8829;">
+                    <i class="fas fa-camera"></i>
+                    Request Photo Sessions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- About Widget -->
+                    <div class="footer-widget about-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="footer-logo">
+                            <img src="images/logo-white.png" alt="Danborough Group of Colleges">
+                        </div>
+                        <h3>About Danborough Group of Colleges</h3>
+                        <p>Danborough Group of Colleges is an extraordinary school of choice dedicated to keeping success in sight. We focus on activating the mind, unlocking potential, and inspiring the future of Zimbabwe through our nurturing environment and commitment to academic excellence.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Widget -->
+                    <div class="footer-widget links-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <h3>Useful Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="academics.html">Academic Programs</a></li>
+                            <li><a href="enroll.html">Enroll Now</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="staff.html">Our Staff</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Media Center Widget -->
+                    <div class="footer-widget programs-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <h3>Media Center</h3>
+                        <ul class="footer-links">
+                            <li><a href="gallery.html">Photo Gallery</a></li>
+                            <li><a href="video-gallery.html">Video Gallery</a></li>
+                            <li><a href="music-gallery.html">Music Gallery</a></li>
+                            <li><a href="media.html">Media Center</a></li>
+                            <li><a href="latest-news.html">Latest News</a></li>
+                            <li><a href="notices.html">Notices</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Information Widget -->
+                    <div class="footer-widget contact-widget" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-details">
+                                    <h4>Glen View Campus</h4>
+                                    <p>4184 OFF PATRENDA WAY,<br>MAKOMVA SHOPPING CENTRE, GLENVIEW</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-details">
+                                    <h4>Warren Park Campus</h4>
+                                    <p>456 Learning Avenue, Warren Park<br>Harare, Zimbabwe</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="contact-details">
+                                    <a href="tel:+263775123456">+263 775 123 456</a><br>
+                                    <a href="tel:+263712987654">+263 712 987 654</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-details">
+                                    <a href="mailto:danboroughgroupofcolleges@gmail.com">danboroughgroupofcolleges@gmail.com</a><br>
+                                    <a href="mailto:danboroughgroupofcolleges@gmail.com">danboroughgroupofcolleges@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Danborough Group of Colleges. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Photo Usage Rights</a>
+                        <a href="#">Site Map</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/mobile-nav.js"></script>
+    <script src="js/desktop-responsive.js"></script>
+    <script src="js/mobile-responsive.js"></script>
+    <script src="js/enhanced-footer-animations.js"></script>
+    
+    <script>
+        // Initialize AOS with enhanced settings
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out-cubic',
+            once: true,
+            offset: 120,
+            delay: 100,
+            anchorPlacement: 'top-bottom'
+        });
+
+        // Enhanced page loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            
+            // Staggered animation for gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for active nav links
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Enhanced Gallery Filter Functionality with Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    // Fade out all items first
+                    galleryItems.forEach(item => {
+                        item.style.transition = 'all 0.3s ease';
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                    });
+                    
+                    // Show filtered items with animation
+                    setTimeout(() => {
+                        galleryItems.forEach((item, index) => {
+                            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                                item.style.display = 'block';
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'scale(1)';
+                                }, index * 50);
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    }, 300);
+                });
+            });
+            
+            // Load More Button Functionality
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            let isLoading = false;
+            
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    if (isLoading) return;
+                    
+                    isLoading = true;
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                    
+                    // Simulate loading more photos
+                    setTimeout(() => {
+                        // Here you would typically load more photos from server
+                        this.innerHTML = '<i class="fas fa-plus"></i> Load More Photos';
+                        isLoading = false;
+                    }, 2000);
+                });
+            }
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.floating-animation');
+            const speed = 0.2;
+
+            parallax.forEach(element => {
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Counter animation for statistics
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                const suffix = counter.textContent.replace(/\d/g, '');
+                let current = 0;
+                const increment = target / 100;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+
+        // Trigger counter animation when statistics section is visible
+        const statsSection = document.querySelector('#statistics');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statsObserver.observe(statsSection);
+        }
+
+        // Enhanced lightbox configuration
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'fadeDuration': 300,
+            'imageFadeDuration': 300
+        });
+
+        // Add hover effects to gallery cards
+        document.querySelectorAll('.gallery-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Lazy loading for images
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('.gallery-card img').forEach(img => {
+            imageObserver.observe(img);
+        });
+    </script>
+</body>
+</html>

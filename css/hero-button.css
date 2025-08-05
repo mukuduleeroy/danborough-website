@@ -1,0 +1,185 @@
+/* ====================================
+   Enhanced Hero Apply Now Button Animations
+   ==================================== */
+
+/* Button container with pulse animation */
+.btn-apply-border {
+    position: relative;
+    display: inline-block;
+    padding: 4px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 300% 300%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Main button with multiple animations */
+.btn-apply {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+    border: 2px solid transparent;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Button hover effects */
+.btn-apply:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 123, 255, 0.4);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+    animation: none; /* Stop floating on hover */
+}
+
+/* Shimmer effect on button */
+.btn-apply::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.btn-apply:hover::before {
+    left: 100%;
+}
+
+/* Icon animation */
+.btn-apply i {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.btn-apply:hover i {
+    transform: rotate(15deg) scale(1.1);
+    animation: none;
+}
+
+/* Text animation */
+.btn-apply span {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Ripple effect on click */
+.btn-apply::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+    z-index: 0;
+}
+
+.btn-apply:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Glow effect */
+.btn-apply:hover {
+    box-shadow: 
+        0 15px 35px rgba(0, 123, 255, 0.4),
+        0 0 30px rgba(0, 123, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Button border animation */
+.btn-apply-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.btn-apply-border:hover::before {
+    opacity: 1;
+    animation: borderRotate 2s linear infinite;
+}
+
+@keyframes borderRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Note: Mobile responsive styles moved to mobile-responsive.css */
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .btn-apply,
+    .btn-apply-border,
+    .btn-apply i {
+        animation: none !important;
+    }
+    
+    .btn-apply {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .btn-apply:hover {
+        transform: none;
+    }
+}
