@@ -5,6 +5,16 @@
  */
 
 $(document).ready(function() {
+    // Initialize AOS (Animate On Scroll)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+    
     // Initialize enhanced animations and interactions
     initEnhancedAnimations();
     initParallaxEffects();
